@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     let todoList = TodoList()
     
+    static let MAX_TEXT_SIZE = 40
+    
     @IBAction func addButtonPressed (sender: UIButton) {
         if (itemTextField.text != "") {
         print("Agregando un elemento a la lista \(itemTextField.text)")
@@ -36,6 +38,18 @@ class ViewController: UIViewController, UITableViewDelegate {
     //MARK: Methods about the Table
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.itemTextField?.resignFirstResponder()
+    }
+    
+    //MARK: Methods about TextField Delegate
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool{
+       if let tareaString = textField.text as? NSString {
+            let updateString = tareaString.stringByReplacingCharactersInRange(range, withString: string)
+            return updateString.characters.count <= ViewController.MAX_TEXT_SIZE
+       }else{
+        return true
+        }
+        
     }
 
 
