@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         print("Agregando un elemento a la lista \(itemTextField.text)")
         todoList.addItem(itemTextField.text!)
             tableView.reloadData()}
+        self.itemTextField.text = ""
         self.itemTextField?.resignFirstResponder()
     }
     
