@@ -11,10 +11,13 @@ import UIKit
 class DetailViewController: UIViewController {
     var item: String?
     
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("El item seleccionado es \(item)")
-        // Do any additional setup after loading the view.
+        self.descriptionLabel.text = item
     }
 
     override func didReceiveMemoryWarning() {

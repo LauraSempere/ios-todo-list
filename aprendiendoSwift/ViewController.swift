@@ -44,6 +44,9 @@ class ViewController: UIViewController, UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.selectedItem = self.todoList.getItem(indexPath.row)
         self.performSegueWithIdentifier("showItem", sender: self)
+        //let detailVC = DetailViewController()
+        //detailVC.item = self.selectedItem
+       // self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
