@@ -178,11 +178,12 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <datePicker hidden="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-EP-gMT">
-                                <rect key="frame" x="0.0" y="372" width="600" height="216"/>
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-EP-gMT">
+                                <rect key="frame" x="0.0" y="244" width="600" height="216"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="216" id="AUq-a7-2fI"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="216" id="Nw8-c9-ime"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="216" id="TZ3-dL-DCH"/>
                                     <constraint firstAttribute="height" constant="216" id="Xfd-3G-Xfw"/>
                                 </constraints>
@@ -212,20 +213,35 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2gP-Rx-HVM">
+                                <rect key="frame" x="0.0" y="244" width="600" height="216"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fOZ-YG-yAK" firstAttribute="leading" secondItem="Zld-YL-fwx" secondAttribute="leadingMargin" id="0aC-GJ-BO9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KBo-EP-gMT" secondAttribute="trailing" id="1EV-lO-Z8c"/>
+                            <constraint firstAttribute="trailing" secondItem="2gP-Rx-HVM" secondAttribute="trailing" id="1wv-1E-OzJ"/>
+                            <constraint firstItem="KBo-EP-gMT" firstAttribute="leading" secondItem="Zld-YL-fwx" secondAttribute="leading" id="4HX-7x-LFr"/>
                             <constraint firstItem="KBo-EP-gMT" firstAttribute="top" secondItem="fOZ-YG-yAK" secondAttribute="bottom" id="4e1-Z3-npR"/>
+                            <constraint firstItem="2gP-Rx-HVM" firstAttribute="width" secondItem="KBo-EP-gMT" secondAttribute="width" id="4g3-cy-fzv"/>
+                            <constraint firstItem="KBo-EP-gMT" firstAttribute="top" secondItem="fOZ-YG-yAK" secondAttribute="bottom" id="HhG-YS-eq8"/>
+                            <constraint firstItem="2gP-Rx-HVM" firstAttribute="top" secondItem="fOZ-YG-yAK" secondAttribute="bottom" id="MuG-w8-VUK"/>
+                            <constraint firstAttribute="trailing" secondItem="KBo-EP-gMT" secondAttribute="trailing" id="QuY-f6-jD9"/>
+                            <constraint firstItem="KBo-EP-gMT" firstAttribute="leading" secondItem="Zld-YL-fwx" secondAttribute="leading" id="R81-0h-WYB"/>
                             <constraint firstAttribute="trailing" secondItem="fOZ-YG-yAK" secondAttribute="trailing" id="Ucc-Y5-38f"/>
                             <constraint firstItem="KBo-EP-gMT" firstAttribute="leading" secondItem="Zld-YL-fwx" secondAttribute="leadingMargin" id="Wvi-W9-MBh"/>
                             <constraint firstItem="Ipq-fm-WXP" firstAttribute="top" secondItem="dvE-Ue-zh3" secondAttribute="bottom" id="XdS-3h-MSc"/>
+                            <constraint firstItem="2gP-Rx-HVM" firstAttribute="leading" secondItem="Zld-YL-fwx" secondAttribute="leading" id="aTV-5I-afv"/>
                             <constraint firstAttribute="trailing" secondItem="dvE-Ue-zh3" secondAttribute="trailing" id="adD-zj-Ivn"/>
+                            <constraint firstItem="KBo-EP-gMT" firstAttribute="top" secondItem="fOZ-YG-yAK" secondAttribute="bottom" id="bcs-SH-MBE"/>
+                            <constraint firstAttribute="trailing" secondItem="KBo-EP-gMT" secondAttribute="trailing" id="f3W-Gj-PTp"/>
                             <constraint firstItem="fOZ-YG-yAK" firstAttribute="top" secondItem="Cxv-cH-2Mu" secondAttribute="bottom" id="oqm-s1-vme"/>
                             <constraint firstItem="fOZ-YG-yAK" firstAttribute="height" secondItem="Zld-YL-fwx" secondAttribute="height" multiplier="0.3" id="p3U-xg-e7l"/>
                             <constraint firstItem="dvE-Ue-zh3" firstAttribute="leading" secondItem="Zld-YL-fwx" secondAttribute="leading" id="tMZ-P9-kHD"/>
+                            <constraint firstItem="2gP-Rx-HVM" firstAttribute="height" secondItem="KBo-EP-gMT" secondAttribute="height" id="xAJ-dh-Ls7"/>
                             <constraint firstItem="KBo-EP-gMT" firstAttribute="top" secondItem="fOZ-YG-yAK" secondAttribute="bottom" id="y2M-AR-xSf"/>
                             <constraint firstItem="fOZ-YG-yAK" firstAttribute="leading" secondItem="Zld-YL-fwx" secondAttribute="leading" id="zer-Zo-5MM"/>
                         </constraints>
@@ -241,6 +257,7 @@
                         <outlet property="dateLabel" destination="VPv-s9-9wa" id="wnK-dL-twp"/>
                         <outlet property="datePicker" destination="KBo-EP-gMT" id="kWg-OD-5Ar"/>
                         <outlet property="descriptionLabel" destination="f16-SV-JF7" id="f6F-wk-4oN"/>
+                        <outlet property="imageView" destination="2gP-Rx-HVM" id="Igy-Rb-0EK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lF5-rZ-dfx" userLabel="First Responder" sceneMemberID="firstResponder"/>

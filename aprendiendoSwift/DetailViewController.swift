@@ -8,12 +8,13 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     var item: String?
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func addNotification(sender: UIBarButtonItem) {
         if let dateString = self.dateLabel.text {
@@ -26,6 +27,7 @@ class DetailViewController: UIViewController {
     @IBAction func addImage(sender: UIBarButtonItem) {
         let imagePickerController =  UIImagePickerController()
         imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePickerController.delegate = self
         self.presentViewController(imagePickerController, animated:true, completion: nil)
     }
     
@@ -41,7 +43,9 @@ class DetailViewController: UIViewController {
     
     @IBAction func dateSelected(sender: UIDatePicker) {
         self.dateLabel.text = formatDate(sender.date)
+        toggleDatePicker()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGestureRecognizer = UITapGestureRecognizer()
@@ -56,6 +60,7 @@ class DetailViewController: UIViewController {
     }
     
     func toggleDatePicker () {
+        self.imageView.hidden = self.datePicker.hidden
         self.datePicker.hidden = !self.datePicker.hidden
     }
     
@@ -76,6 +81,14 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: ImagePickerController Methods
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imageView.image = image
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
