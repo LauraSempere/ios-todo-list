@@ -14,10 +14,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBAction func dateSelected(sender: UIDatePicker) {
+        self.dateLabel.text = formatDate(sender.date)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("El item seleccionado es \(item)")
         self.descriptionLabel.text = item
+    }
+    
+    func formatDate (date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd/MMM/yyyy HH:mm"
+        return formatter.stringFromDate(date)
     }
 
     override func didReceiveMemoryWarning() {
