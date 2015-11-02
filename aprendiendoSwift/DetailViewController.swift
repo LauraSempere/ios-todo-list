@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBAction func addNotification(sender: UIBarButtonItem) {
         if let dateString = self.dateLabel.text {
@@ -20,6 +21,12 @@ class DetailViewController: UIViewController {
                 scheduleNotificacion(self.item!, date: date)
             }
         }
+    }
+    
+    @IBAction func addImage(sender: UIBarButtonItem) {
+        let imagePickerController =  UIImagePickerController()
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(imagePickerController, animated:true, completion: nil)
     }
     
     func scheduleNotificacion (message:String, date: NSDate){
@@ -37,8 +44,19 @@ class DetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        tapGestureRecognizer.numberOfTouchesRequired = 1
+        tapGestureRecognizer.addTarget(self, action: "toggleDatePicker")
+        self.dateLabel.addGestureRecognizer(tapGestureRecognizer)
+        self.dateLabel.userInteractionEnabled = true
+        
         print("El item seleccionado es \(item)")
         self.descriptionLabel.text = item
+    }
+    
+    func toggleDatePicker () {
+        self.datePicker.hidden = !self.datePicker.hidden
     }
     
     func formatDate (date: NSDate) -> String {

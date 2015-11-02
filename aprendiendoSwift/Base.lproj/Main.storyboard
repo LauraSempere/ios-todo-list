@@ -178,7 +178,7 @@
                                 </subviews>
                                 <animations/>
                             </stackView>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-EP-gMT">
+                            <datePicker hidden="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KBo-EP-gMT">
                                 <rect key="frame" x="0.0" y="372" width="600" height="216"/>
                                 <animations/>
                                 <constraints>
@@ -205,7 +205,11 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="T9U-0K-DrG"/>
-                                    <barButtonItem systemItem="camera" id="kIV-Fq-6uK"/>
+                                    <barButtonItem systemItem="camera" id="kIV-Fq-6uK">
+                                        <connections>
+                                            <action selector="addImage:" destination="Uq9-7F-Ltt" id="Dhb-he-ccX"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -235,6 +239,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="VPv-s9-9wa" id="wnK-dL-twp"/>
+                        <outlet property="datePicker" destination="KBo-EP-gMT" id="kWg-OD-5Ar"/>
                         <outlet property="descriptionLabel" destination="f16-SV-JF7" id="f6F-wk-4oN"/>
                     </connections>
                 </viewController>
