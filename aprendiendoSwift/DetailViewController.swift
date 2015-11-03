@@ -9,7 +9,9 @@
 import UIKit
 
 class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    var item: String?
+    var item: TodoItem?
+    
+    var todoList:TodoList?
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -19,7 +21,10 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func addNotification(sender: UIBarButtonItem) {
         if let dateString = self.dateLabel.text {
             if let date = parseDate(dateString){
-                scheduleNotificacion(self.item!, date: date)
+                self.item?.dueDate = date
+                self.todoList?.saveItems()
+                scheduleNotificacion(self.item!.todo!, date: date)
+                self.navigationController?.popViewControllerAnimated(true)
             }
         }
     }
@@ -54,9 +59,19 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         tapGestureRecognizer.addTarget(self, action: "toggleDatePicker")
         self.dateLabel.addGestureRecognizer(tapGestureRecognizer)
         self.dateLabel.userInteractionEnabled = true
-        
-        print("El item seleccionado es \(item)")
-        self.descriptionLabel.text = item
+        showItem()
+    }
+    
+    func showItem(){
+        self.descriptionLabel.text = item?.todo
+        if let date = item?.dueDate {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "dd/MMM/yyyy HH:mm"
+            self.dateLabel.text = formatter.stringFromDate(date)
+        }
+        if let img = item?.image{
+            self.imageView.image = img
+        }
     }
     
     func toggleDatePicker () {
@@ -85,6 +100,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.item?.image = image
+            self.todoList?.saveItems()
             self.imageView.image = image
         }
         self.dismissViewControllerAnimated(true, completion: nil)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1678211BE8FC6200D5EB9C /* todoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1678201BE8FC6200D5EB9C /* todoItem.swift */; };
 		DD8B0BE41BD7CEFE00178894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0BE31BD7CEFE00178894 /* AppDelegate.swift */; };
 		DD8B0BE61BD7CEFF00178894 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0BE51BD7CEFF00178894 /* ViewController.swift */; };
 		DD8B0BE91BD7CEFF00178894 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8B0BE71BD7CEFF00178894 /* Main.storyboard */; };
@@ -14,8 +15,8 @@
 		DD8B0BEE1BD7CEFF00178894 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD8B0BEC1BD7CEFF00178894 /* LaunchScreen.storyboard */; };
 		DD8B0BF91BD7CEFF00178894 /* aprendiendoSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0BF81BD7CEFF00178894 /* aprendiendoSwiftTests.swift */; };
 		DD8B0C041BD7CEFF00178894 /* aprendiendoSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0C031BD7CEFF00178894 /* aprendiendoSwiftUITests.swift */; };
-		DD8B0C121BD7DD5700178894 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0C111BD7DD5700178894 /* TodoList.swift */; settings = {ASSET_TAGS = (); }; };
-		DDED1B011BDB9ADE00ACC01D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED1B001BDB9ADE00ACC01D /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		DD8B0C121BD7DD5700178894 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8B0C111BD7DD5700178894 /* TodoList.swift */; };
+		DDED1B011BDB9ADE00ACC01D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED1B001BDB9ADE00ACC01D /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD1678201BE8FC6200D5EB9C /* todoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = todoItem.swift; sourceTree = "<group>"; };
 		DD8B0BE01BD7CEFE00178894 /* aprendiendoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aprendiendoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8B0BE31BD7CEFE00178894 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD8B0BE51BD7CEFF00178894 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				DD8B0BEC1BD7CEFF00178894 /* LaunchScreen.storyboard */,
 				DD8B0BEF1BD7CEFF00178894 /* Info.plist */,
 				DDED1B001BDB9ADE00ACC01D /* DetailViewController.swift */,
+				DD1678201BE8FC6200D5EB9C /* todoItem.swift */,
 			);
 			path = aprendiendoSwift;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				TargetAttributes = {
 					DD8B0BDF1BD7CEFE00178894 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 4R2G5ZKCX8;
 					};
 					DD8B0BF31BD7CEFF00178894 = {
 						CreatedOnToolsVersion = 7.0;
@@ -261,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1678211BE8FC6200D5EB9C /* todoItem.swift in Sources */,
 				DD8B0C121BD7DD5700178894 /* TodoList.swift in Sources */,
 				DD8B0BE61BD7CEFF00178894 /* ViewController.swift in Sources */,
 				DD8B0BE41BD7CEFE00178894 /* AppDelegate.swift in Sources */,
@@ -406,10 +411,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = aprendiendoSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laura.aprendiendoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -417,10 +426,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = aprendiendoSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laura.aprendiendoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
