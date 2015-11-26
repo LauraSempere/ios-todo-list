@@ -60,6 +60,25 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dateLabel.addGestureRecognizer(tapGestureRecognizer)
         self.dateLabel.userInteractionEnabled = true
         showItem()
+        self.addGestureRecognizerToImage()
+    }
+    
+    func addGestureRecognizerToImage(){
+        let gr = UITapGestureRecognizer()
+        gr.numberOfTapsRequired = 1
+        gr.numberOfTouchesRequired = 1
+        gr.addTarget(self, action: "rotate")
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(gr)
+    }
+    
+    func rotate(){
+        let animation = CABasicAnimation()
+        animation.keyPath = "transform.rotation.y"
+        animation.toValue = M_PI * 2.0
+        animation.duration = 1
+        animation.repeatCount = 2
+        self.imageView.layer.addAnimation(animation, forKey: "rotateAnimation")
     }
     
     func showItem(){
@@ -75,8 +94,11 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func toggleDatePicker () {
-        self.imageView.hidden = self.datePicker.hidden
-        self.datePicker.hidden = !self.datePicker.hidden
+        if self.datePicker.hidden {
+            fadeInDatePicker()
+        }else{
+            fadeOutDatePicker()
+        }
     }
     
     func formatDate (date: NSDate) -> String {
@@ -107,6 +129,28 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 
+    // MARK: Animations
+    
+    func fadeInDatePicker(){
+        self.datePicker.alpha = 0
+        self.datePicker.hidden = false
+        UIView.animateWithDuration(1){() -> Void in
+            self.datePicker.alpha = 1
+            self.imageView.alpha = 0
+        }
+    }
+    
+    func fadeOutDatePicker(){
+        self.datePicker.alpha = 1
+        self.datePicker.hidden = false
+        UIView.animateWithDuration(1, animations:{
+            self.datePicker.alpha = 0
+            self.imageView.alpha = 1
+            }) { (completion) -> Void in
+             self.datePicker.hidden = true
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
