@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
         UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        print("Username: \(API.uniqueUserName())")
         return true
     }
 
